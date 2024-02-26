@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast Notification</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+</head>
+<body>
+    <div class="buttons">
+        <button class="btn" onclick="showtoast(secces)">Success</button>
+        <button class="btn" onclick="showtoast(error)">Error</button>
+        <button class="btn" onclick="showtoast(invalidmesg)">Invalid</button>
+
+
+    </div>
+    <!--Toast Box-->
+    <div id="Toastbox">
+
+
+    </div>
+    <script>
+       let Toastbox = document.getElementById('Toastbox');
+       let secces = '<i class="fa-regular fa-circle-check"></i> Succesfull';
+       let error  = ' <i class="fa-solid fa-bug"></i>Error occer';
+       let invalidmesg ='<i class="fa-solid fa-triangle-exclamation"></i>Invaild-Messege';
+
+       function showtoast(meg){
+       let toast = document.createElement('div');
+       toast.classList.add('toast');
+       toast.innerHTML=meg;
+       Toastbox.appendChild(toast);
+       
+       if(meg.includes('error')){
+        toast.classList.add('error');
+
+
+       }
+       if(meg.includes('invalidmesg')){
+        toast.classList.add('invid');
+
+
+       }
+       setTimeout(()=>{
+
+        toast.remove();
+       },6000)
+
+      }
+
+    </script>
+</body>
+</html>
